@@ -43,14 +43,50 @@ while (jugar === "S") {
 console.log("Gracias por jugar nos vemos luego");
 
 
+// actividad 2
 
-// let frutas = ['manzana', 'banano', 'uva', 'pera', 'sandia', 'kiwi', 'naranja']
-// console.log(frutas.sort())
 
-// function singularAPlural( palabra){
-//     if (palabra.endsWhith("s"))
-//         return palabra + "s"
+let frutas = ['manzana', 'banano', 'uva', 'pera', 'sandia', 'kiwi', 'naranja'];
+console.log("Frutas:", frutas);
 
-// }
+frutas.sort();
+console.log("Frutas ordenadas:", frutas);
 
-// console.log (singularAPlural(frutas[3]))
+function SingularAPlural(palabra) {
+  if (palabra.endsWith('s')) {
+    return palabra;
+  } else {
+    return palabra + 's';
+  }
+}
+
+let frutasPlural = [];
+for (let fruta of frutas) {
+  frutasPlural.push(SingularAPlural(fruta));
+}
+console.log("Frutas en plural:", frutasPlural);
+
+
+function exist(nombre) {
+  return frutas.includes(nombre);
+}
+console.log("¿Existe 'mango'?", exist("mango"));
+console.log("¿Existe 'uva'?", existeFruta("uva")); 
+
+
+let fruCortas = frutas.filter(fruta => fruta.length <= 4);
+console.log("Frutas cortas (≤ 4 letras):", fruCortas);
+
+
+function eliminarFruta(nombre) {
+  let fru = frutas.indexOf(nombre);
+  if (fru !== -1) {
+    frutas.splice(fru, 1);
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log("Eliminar 'pera':", eliminarFruta("pera")); 
+console.log("Eliminar 'mango':", eliminarFruta("mango")); 
+console.log("Frutas después de eliminar:", frutas);
